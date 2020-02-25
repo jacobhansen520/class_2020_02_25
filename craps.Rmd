@@ -21,11 +21,15 @@ roll_two_dice <- function(x){
   roll_one_die() + roll_one_die()
 }
 
-roll_1000_dice <- tibble(rolls = map_int(rep(1:1000), ~ roll_two_dice()))
+roll_dice <- tibble(rolls = map_int(rep(1:100000), ~ roll_two_dice()))
 
-ggplot(roll_1000_dice, aes(x = rolls)) +
+ggplot(roll_dice, aes(x = rolls)) +
     geom_histogram(binwidth = 0.5) +
     scale_x_continuous(breaks = seq(0, 12, 1)) +
     theme_classic()
+```
+
+```{r}
+
 ```
 
